@@ -79,11 +79,14 @@ const shortenUrl = async () => {
 .url-shortener {
   max-width: 500px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 form {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
   align-items: center;
@@ -92,5 +95,16 @@ form {
 .shortened-url {
   margin-top: 2rem;
   text-align: center;
+  word-break: break-all;
+}
+
+form > :first-child {
+  flex: 1 1 200px;
+}
+
+@media (min-width: 576px) {
+  .url-shortener {
+    padding: 2rem;
+  }
 }
 </style>
