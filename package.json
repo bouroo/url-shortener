@@ -1,29 +1,21 @@
 {
-  "name": "url-shortener",
+  "name": "url-shortener-monorepo",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "wrangler pages dev dist",
-    "deploy": "bun run build && wrangler pages deploy dist"
+    "dev:frontend": "bun --filter frontend dev",
+    "build:frontend": "bun --filter frontend build",
+    "deploy:frontend": "bun --filter frontend deploy",
+    "dev:worker": "bun --filter worker dev",
+    "build:worker": "bun --filter worker build",
+    "deploy:worker": "bun --filter worker deploy"
   },
-  "dependencies": {
-    "@hono/vite-cloudflare-pages": "^0.4.2",
-    "@primevue/themes": "^4.3.6",
-    "hono": "^4.8.4",
-    "primeicons": "^7.0.0",
-    "primevue": "^4.3.6",
-    "vue": "^3.5.0",
-    "zod": "^3.23.8"
-  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250712.0",
-    "@types/node": "^24.0.13",
-    "@vitejs/plugin-vue": "^5.1.1",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "wrangler": "^4.24.3"
+    "wrangler": "^3.0.0"
   }
 }

@@ -46,22 +46,29 @@ const shortenUrl = async () => {
     return
   }
 
+  let formattedUrl = url.value;
+  if (!/^https?:\/\//i.test(formattedUrl)) {
+    formattedUrl = `https://${formattedUrl}`;
+  }
+
   if (!token.value) {
     alert('Please complete the CAPTCHA')
     return
   }
 
-  const response = await fetch('/api/shorten', {
+  const workerUrl = import.meta.env.VITE_WORKER_URL.endsWith('/') ? import.meta.env.VITE_WORKER_URL.slice(0, -1) : import.meta.env.VITE_WORKER_URL;
+
+  const response = await fetch(`${workerUrl}/api/shorten`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ url: url.value, token: token.value })
+    body: JSON.stringify({ url: formattedUrl, token: token.value })
   })
 
   if (response.ok) {
     const data = await response.json()
-    shortenedUrl.value = `${window.location.origin}/${data.id}`
+    shortenedUrl.value = `${workerUrl}/${data.id}`
   } else {
     alert('Failed to shorten URL')
   }

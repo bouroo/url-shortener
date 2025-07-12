@@ -5,14 +5,17 @@ import { z } from 'zod'
 export const CreateShortUrlController = (useCase: CreateShortUrl) => async (c: Context) => {
   const schema = z.object({
     url: z.string().url(),
-    token: z.string().min(1)
+    token: z.string().min(1).optional() // Made token optional
   })
 
   let data: z.infer<typeof schema>
 
   try {
     data = schema.parse(await c.req.json())
-  } catch {
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return c.json({ errors: error.errors }, 400)
+    }
     return c.text('Invalid request data', 400)
   }
 
