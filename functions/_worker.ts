@@ -6,7 +6,7 @@ import { CreateShortUrl } from './src/domain/usecases/CreateShortUrl'
 import { GetOriginalUrl } from './src/domain/usecases/GetOriginalUrl'
 import { generateId } from './src/infra/IdGenerator'
 
-const app = new Hono<{ Bindings: { URLS: KVNamespace; TURNSTILE_SECRET: string } }>()
+const app = new Hono<{ Bindings: { URLS: KVNamespace } }>()
 
 app.get('/api', (c) => c.text('URL Shortener API is running'))
 

@@ -2,9 +2,9 @@ name = "url-shortener"
 compatibility_date = "2024-07-12"
 pages_build_output_dir = "dist"
 
-[vars]
-TURNSTILE_SECRET = "${TURNSTILE_SECRET}"
+
 
 [[kv_namespaces]]
 binding = "URLS"
-id = "${KV_URLS_ID}"
+id = "d4483eee51484f8587013ec77aabcfe5"
+preview_id = "local_kv_for_dev"
