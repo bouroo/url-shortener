@@ -10,7 +10,7 @@ import { cors } from 'hono/cors'
 const app = new Hono<{ Bindings: { URLS: KVNamespace } }>()
 
 app.use('/*', cors({
-  origin: ['https://url-from.kawin.dev', 'https://url-to.kawin.dev'],
+  origin: '*',
   allowHeaders: ['Content-Type'],
   allowMethods: ['POST', 'GET'],
   maxAge: 86400,
