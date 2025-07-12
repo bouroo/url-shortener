@@ -4,6 +4,7 @@
     "": {
       "name": "url-shortener",
       "dependencies": {
+        "@hono/vite-cloudflare-pages": "^0.4.2",
         "@primevue/themes": "^4.3.6",
         "hono": "^4.8.4",
         "primeicons": "^7.0.0",
@@ -43,6 +44,8 @@
     "@esbuild/linux-x64": ["@esbuild/linux-x64@0.21.5", "", { "os": "linux", "cpu": "x64" }, ""],
 
     "@fastify/busboy": ["@fastify/busboy@2.1.1", "", {}, ""],
+
+    "@hono/vite-cloudflare-pages": ["@hono/vite-cloudflare-pages@0.4.2", "", { "peerDependencies": { "hono": "*" } }, "sha512-fvSmWNtL7rMTa6tfj0dJNu0UStp8veb2r1BfutoKtJ6GaTzO1sR5ElQw9jIYo46oTBcx8+i/9+NzyGR56awtrQ=="],
 
     "@img/sharp-libvips-linux-x64": ["@img/sharp-libvips-linux-x64@1.0.4", "", { "os": "linux", "cpu": "x64" }, ""],
 

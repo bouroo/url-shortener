@@ -2,6 +2,9 @@ name = "url-shortener"
 compatibility_date = "2024-07-12"
 pages_build_output_dir = "dist"
 
+[functions]
+"directory" = "./functions"
+
 [vars]
 TURNSTILE_SECRET = "${TURNSTILE_SECRET}"
 
