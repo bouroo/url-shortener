@@ -7,7 +7,20 @@
         "wrangler": "^3.0.0",
       },
     },
-    "apps/frontend": {
+    "app/backend": {
+      "name": "worker",
+      "version": "0.0.0",
+      "dependencies": {
+        "hono": "^4.8.4",
+        "zod": "^3.23.8",
+      },
+      "devDependencies": {
+        "@cloudflare/workers-types": "^4.20250712.0",
+        "typescript": "^5.5.4",
+        "wrangler": "^3.0.0",
+      },
+    },
+    "app/frontend": {
       "name": "frontend",
       "version": "0.0.0",
       "dependencies": {
@@ -22,19 +35,6 @@
         "@vitejs/plugin-vue": "^5.1.1",
         "typescript": "^5.5.4",
         "vite": "^5.4.2",
-        "wrangler": "^3.0.0",
-      },
-    },
-    "packages/worker": {
-      "name": "worker",
-      "version": "0.0.0",
-      "dependencies": {
-        "hono": "^4.8.4",
-        "zod": "^3.23.8",
-      },
-      "devDependencies": {
-        "@cloudflare/workers-types": "^4.20250712.0",
-        "typescript": "^5.5.4",
         "wrangler": "^3.0.0",
       },
     },
@@ -210,7 +210,7 @@
 
     "exsolve": ["exsolve@1.0.7", "", {}, ""],
 
-    "frontend": ["frontend@workspace:apps/frontend"],
+    "frontend": ["frontend@workspace:app/frontend"],
 
     "fsevents": ["fsevents@2.3.2", "", { "os": "darwin" }, "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="],
 
@@ -286,7 +286,7 @@
 
     "vue": ["vue@3.5.17", "", { "dependencies": { "@vue/compiler-dom": "3.5.17", "@vue/compiler-sfc": "3.5.17", "@vue/runtime-dom": "3.5.17", "@vue/server-renderer": "3.5.17", "@vue/shared": "3.5.17" }, "peerDependencies": { "typescript": "*" } }, ""],
 
-    "worker": ["worker@workspace:packages/worker"],
+    "worker": ["worker@workspace:app/backend"],
 
     "workerd": ["workerd@1.20250408.0", "", { "optionalDependencies": { "@cloudflare/workerd-darwin-64": "1.20250408.0", "@cloudflare/workerd-darwin-arm64": "1.20250408.0", "@cloudflare/workerd-linux-64": "1.20250408.0", "@cloudflare/workerd-linux-arm64": "1.20250408.0", "@cloudflare/workerd-windows-64": "1.20250408.0" }, "bin": { "workerd": "bin/workerd" } }, "sha512-bBUX+UsvpzAqiWFNeZrlZmDGddiGZdBBbftZJz2wE6iUg/cIAJeVQYTtS/3ahaicguoLBz4nJiDo8luqM9fx1A=="],
 

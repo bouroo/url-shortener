@@ -1,0 +1,3 @@
+name = "url-from"
+compatibility_date = "2024-07-12"
+pages_build_output_dir = "dist"

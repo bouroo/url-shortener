@@ -6,14 +6,13 @@
   "scripts": {
     "dev:frontend": "bun --filter frontend dev",
     "build:frontend": "bun --filter frontend build",
-    "deploy:frontend": "bun --filter frontend deploy",
-    "dev:worker": "bun --filter worker dev",
-    "build:worker": "bun --filter worker build",
-    "deploy:worker": "bun --filter worker deploy"
+    "deploy:frontend": "bun --filter frontend --cwd app/frontend wrangler pages deploy dist --config app/frontend/wrangler.toml",
+    "dev:backend": "bun --filter backend dev",
+    "build:backend": "bun --filter backend build",
+    "deploy:backend": "bun --filter backend --cwd app/backend wrangler deploy --config app/backend/wrangler.toml"
   },
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "app/*"
   ],
   "devDependencies": {
     "wrangler": "^3.0.0"
